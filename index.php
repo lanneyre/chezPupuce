@@ -54,21 +54,11 @@
     
     // var_dump(Fournisseur::read());
 
-    $fournisseur = new Fournisseur("MonFournisseur", "Quitue", "monfournisseur@quitue.org", "22 Rue des suicidés", "06000", "Nice", "21/01/2021", "4010005");
-
-    $p1 = new Produits("truc", "truc", "imagesDeTruc", 42, 3);
-    $p2 = new Produits("machin", "machin", "imagesDemachin", 22, 13);
-    $p3 = new Produits("bidule", "bidule", "imagesDebidule", 82, 39);
-    $p4 = new Produits("choses", "choses", "imagesDechoses", 546, 113);
-
-    $p1->new();
-    $p2->new();
-    $p3->new();
-    $p4->new();
-
     //var_dump(Produits::read());
-    ProduitFournisseur::remplissage();
-
-    // var_dump(ProduitFournisseur::$quantite);
+    Database::remplissage();
+    $fournisseur = Database::getFournisseurById("4010005");
+    $p1 = Database::getProduitsById(1);
     
-    echo $p1->getQuantiteByFournisseur($fournisseur->codeComptable);
+    echo $p1->getQuantiteByFournisseur($fournisseur->codeComptable)."\n";
+
+    echo $fournisseur->getQuantiteByProduit($p1->id_produit)."\n";

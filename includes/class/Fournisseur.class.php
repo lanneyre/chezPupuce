@@ -2,8 +2,7 @@
     class Fournisseur extends Personne{
 
         protected $codeComptable;
-
-        static $tableau_fournisseur;
+        static $compteur;
 
         function __construct($nom, $prenom, $mail, $adresse, $Cp, $ville, $date, $codeComptable){
             parent::__construct($nom, $prenom, $mail, $adresse, $Cp, $ville, $date);
@@ -12,13 +11,13 @@
         } 
         
         static function read(){
-            return self::$tableau_fournisseur;
+            return Database::$tableau_fournisseur;
         }
 
         public function new(){
-            if(empty($this->id) || empty(self::$tableau_fournisseur[$this->id])){
+            if(empty($this->id) || empty(Database::$tableau_fournisseur[$this->id])){
                 $this->id = uniqid("Pupuce_fourn_");
-                self::$tableau_fournisseur[$this->id] = $this;
+                Database::$tableau_fournisseur[$this->id] = $this;
                 return true;
             } else {
                 return false;
@@ -30,15 +29,24 @@
             return true;
         }
         function delete(){
-            if(empty(self::$tableau_fournisseur[$this->id])){
+            if(empty(Database::$tableau_fournisseur[$this->id])){
                 return false;
             }else{
-                unset(self::$tableau_fournisseur[$this->id]);
+                unset(Database::$tableau_fournisseur[$this->id]);
                 return true;
             }
         }
 
         function getQuantiteByProduit($idProduit){
-            
+            $qte = 0;
+            // var_dump($this);
+            //ProduitFournisseur::$quantite;
+            foreach (Database::$quantite as $value) {
+                # code...
+                if($value["codeComptable"] == $this->codeComptable && $value["idProduit"] == $idProduit){
+                    $qte += $value["qte"];
+                }
+            }
+            return $qte;
         }
     }

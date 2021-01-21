@@ -8,7 +8,6 @@ class Produits implements Commander{
     protected $prix_produit;
     protected $quantite_produit;
 
-    static $tableau_produits;
     static $compteur;
         
     public function __construct($np, $dp, $ip, $pp, $qes){
@@ -21,11 +20,11 @@ class Produits implements Commander{
     }
 
     public function new(){
-        self::$tableau_produits[] = $this;
+        Database::$tableau_produits[] = $this;
     }
 
     static function read(){
-        return self::$tableau_produits;
+        return Database::$tableau_produits;
     }
     // public function getNomProduit(){
     //     echo $this->nom_produit;
@@ -56,7 +55,7 @@ class Produits implements Commander{
     function getQuantiteByFournisseur($codeFournisseur){
         $qte = 0;
         //ProduitFournisseur::$quantite;
-        foreach (ProduitFournisseur::$quantite as $value) {
+        foreach (Database::$quantite as $value) {
             # code...
             if($value["codeComptable"] == $codeFournisseur && $value["idProduit"] == $this->id_produit){
                 $qte += $value["qte"];
