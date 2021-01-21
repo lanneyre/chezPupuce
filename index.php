@@ -56,9 +56,27 @@
 
     //var_dump(Produits::read());
     Database::remplissage();
-    $fournisseur = Fournisseur::getFournisseurById("4010005");
-    $p1 = Produits::getProduitsById(1);
+    // $fournisseur = Fournisseur::getFournisseurById("4010005");
+    // $p1 = Produits::getProduitsById(1);
     
-    echo $p1->getQuantiteByFournisseur($fournisseur->codeComptable)."\n";
+    // echo $p1->getQuantiteByFournisseur($fournisseur->codeComptable)."\n";
 
-    echo $fournisseur->getQuantiteByProduit($p1->id_produit)."\n";
+    // echo $fournisseur->getQuantiteByProduit($p1->id_produit)."\n";
+
+
+    $panier = new Panier();
+
+    $client1 = Client::getClientById(2);
+
+    $panier->idClient = $client1->id;
+    // var_dump(Produits::read());
+
+    // $panier->newProduit(rand(1,4), rand(1, 5));
+    // $panier->newProduit(rand(1,4), rand(1, 5));
+    // $panier->newProduit(rand(1,4), rand(1, 5));
+    // $panier->newProduit(rand(1,4), rand(1, 5));
+    $panier->newProduit(4, 20);
+    $panier->newProduit(3, 5);
+    $panier->deletePanier(4);
+    var_dump($panier->tableau_panier);
+

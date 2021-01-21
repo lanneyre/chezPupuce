@@ -8,6 +8,16 @@
             return self::$tableau_client;
         }
 
+        static function getClientById($idClient){
+            foreach (self::$tableau_client as $client) {
+                # code...
+                if($client->id == $idClient){
+                    return $client;
+                }
+            }
+            return "donne moi un vrai id ..... (autocensure) !";
+        }
+
         // Employés
         static $tableau_employe;
 
@@ -71,6 +81,12 @@
             $p2->new();
             $p3->new();
             $p4->new();
+
+            $client1 = new Client("Thomas", "Fred", "Thomas@fred.com", "Chez Maxime", "13300", "Arles", "Hier", "1234");
+            $client2 = new Client("Malik", "Fabrice", "Malik@fabrice.us", "Chez Apple", "75000", "Paris", "avant hier", "4321");
+
+            $client1->new();
+            $client2->new();
         }
     }
     

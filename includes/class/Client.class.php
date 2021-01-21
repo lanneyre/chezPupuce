@@ -2,7 +2,7 @@
 class Client extends Personne {
     private  $dateCreationCompte;
     
-    
+    static $compteur = 0;
         // function __construct($nom, $prenom, $mail, $adresse, $Cp, $ville, $date, $motDePasse){
         //     parent::__construct($nom, $prenom, $mail, $adresse, $Cp, $ville, $date, $motDePasse);
         // } 
@@ -10,7 +10,7 @@ class Client extends Personne {
         public function new(){
             if(empty($this->id) || empty(Database::$tableau_client[$this->id])){
                 $this->dateCreationCompte = new DateTime();
-                $this->id = uniqid("Pupuce_");
+                $this->id = ++self::$compteur; //uniqid("Pupuce_");
                 Database::$tableau_client[$this->id] = $this;
                 return true;
             } else {
@@ -40,5 +40,9 @@ class Client extends Personne {
             } else {
                 return false;
             }
+        }
+
+        static function getClientById($idClient){
+            return Database::getClientById($idClient);
         }
     }
