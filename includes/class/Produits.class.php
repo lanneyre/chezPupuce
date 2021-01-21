@@ -56,6 +56,12 @@ class Produits implements Commander{
     function getQuantiteByFournisseur($codeFournisseur){
         $qte = 0;
         //ProduitFournisseur::$quantite;
+        foreach (ProduitFournisseur::$quantite as $value) {
+            # code...
+            if($value["codeComptable"] == $codeFournisseur && $value["idProduit"] == $this->id_produit){
+                $qte += $value["qte"];
+            }
+        }
         return $qte;
     }
 }

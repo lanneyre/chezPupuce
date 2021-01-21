@@ -37,4 +37,8 @@
                 return true;
             }
         }
+
+        function getQuantiteByProduit($idProduit){
+            
+        }
     }
