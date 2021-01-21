@@ -11,21 +11,21 @@
     $dateNaissance = readline("Merci de rentrer une date de naissance : ");
     $mdp = readline("Merci de rentrer un mdp : ");
 
-    $client1 = new Client($nom, $prenom, $mail, $adresse, $cp, $ville, $dateNaissance, $mdp);
-    $client2 = new Client($nom, $prenom, $mail, $adresse, $cp, $ville, $dateNaissance, $mdp);
+    // $client1 = new Client($nom, $prenom, $mail, $adresse, $cp, $ville, $dateNaissance, $mdp);
+    // $client2 = new Client($nom, $prenom, $mail, $adresse, $cp, $ville, $dateNaissance, $mdp);
     
-    var_dump(Client::read());
+    // var_dump(Client::read());
 
-    $client1->new();
-    $client2->new();
+    // $client1->new();
+    // $client2->new();
 
-    var_dump(Client::read());
+    // var_dump(Client::read());
 
     // $client1->update();
 
-    $client1->delete();
+    // $client1->delete();
 
-    var_dump(Client::read());
+    // var_dump(Client::read());
 
     // var_dump($client1->authentification());
 
@@ -39,3 +39,17 @@
     // $employe->new();
 
     // var_dump(Employe::read());
+
+    $codeComptable = readline("Merci de rentrer un code comptable : ");
+
+    $fournisseur = new Fournisseur($nom, $prenom, $mail, $adresse, $cp, $ville, $dateNaissance, $codeComptable);
+
+    var_dump(Fournisseur::read());
+
+    $fournisseur->new();
+
+    var_dump(Fournisseur::read());
+
+    $fournisseur->update();
+    
+    var_dump(Fournisseur::read());

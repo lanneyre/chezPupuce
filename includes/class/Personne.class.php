@@ -10,9 +10,9 @@
 		protected $ville;
 		protected $dateNaissance;
 		protected $id;
-		protected  $motDePasse;
+		protected $motDePasse;
 
-		function __construct($u_Nom, $u_Prenom, $u_Mail, $u_Adresse, $u_Code_Postal, $u_Ville, $u_Date_De_Naissance, $u_mdp){
+		function __construct($u_Nom, $u_Prenom, $u_Mail, $u_Adresse, $u_Code_Postal, $u_Ville, $u_Date_De_Naissance, $u_mdp = null){
 			$this->nom = $u_Nom;
 			$this->prenom = $u_Prenom;
 			$this->mail = $u_Mail;
