@@ -71,12 +71,19 @@
     $panier->idClient = $client1->id;
     // var_dump(Produits::read());
 
-    // $panier->newProduit(rand(1,4), rand(1, 5));
-    // $panier->newProduit(rand(1,4), rand(1, 5));
-    // $panier->newProduit(rand(1,4), rand(1, 5));
-    // $panier->newProduit(rand(1,4), rand(1, 5));
-    $panier->newProduit(4, 20);
-    $panier->newProduit(3, 5);
-    $panier->deletePanier(4);
-    var_dump($panier->tableau_panier);
+    $panier->newProduit(rand(1,4), rand(1, 5));
+    $panier->newProduit(rand(1,4), rand(1, 5));
+    $panier->newProduit(rand(1,4), rand(1, 5));
+    $panier->newProduit(rand(1,4), rand(1, 5));
+    // $panier->newProduit(4, 20);
+    // $panier->newProduit(3, 5);
+    // $panier->deletePanier(4);
+    echo $panier->calculTotalHT()."\n";
+    echo $panier->calculTotalTTC()."\n";
+
+    $commande = $panier->validerPanier();
+
+
+    var_dump(Commande::read());
+    var_dump(Panier::read());
 

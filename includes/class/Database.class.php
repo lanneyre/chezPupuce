@@ -4,6 +4,8 @@
         // Clients
         static $tableau_client;
 
+        const TAUX_TVA = 0.2;
+
         static function getAllClients(){
             return self::$tableau_client;
         }
@@ -87,6 +89,27 @@
 
             $client1->new();
             $client2->new();
+        }
+        Static $tableau_panier = array();
+
+        static function getPanierByNum($numPanier){
+            foreach(self::$tableau_panier as $panier){
+                if($panier->numPanier == $numPanier){
+                    return $panier;
+                }
+            }
+            return false;
+        }
+
+        static function getAllPanier(){
+            return self::$tableau_panier;
+        }
+
+        // Commandes
+        static $tableau_commandes = array();
+
+        static function getAllCommandes(){
+            return self::$tableau_commandes;
         }
     }
     
