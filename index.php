@@ -2,7 +2,7 @@
     require("includes/Autoloader.php");
     Autoloader::register();
 
-    $nom = readline("Merci de rentrer un nom : ");
+    /*$nom = readline("Merci de rentrer un nom : ");
     $prenom = readline("Merci de rentrer un prenom : ");
     $mail = readline("Merci de rentrer un mail : ");
     $adresse = readline("Merci de rentrer une adresse : ");
@@ -44,12 +44,31 @@
 
     $fournisseur = new Fournisseur($nom, $prenom, $mail, $adresse, $cp, $ville, $dateNaissance, $codeComptable);
 
-    var_dump(Fournisseur::read());
+    // var_dump(Fournisseur::read());
 
-    $fournisseur->new();
+    $fournisseur->new();*/
 
-    var_dump(Fournisseur::read());
+    // var_dump(Fournisseur::read());
 
-    $fournisseur->update();
+    // $fournisseur->update();
     
-    var_dump(Fournisseur::read());
+    // var_dump(Fournisseur::read());
+
+    $fournisseur = new Fournisseur("MonFournisseur", "Quitue", "monfournisseur@quitue.org", "22 Rue des suicidés", "06000", "Nice", "21/01/2021", "4010005");
+
+    $p1 = new Produits("truc", "truc", "imagesDeTruc", 42, 3);
+    $p2 = new Produits("machin", "machin", "imagesDemachin", 22, 13);
+    $p3 = new Produits("bidule", "bidule", "imagesDebidule", 82, 39);
+    $p4 = new Produits("choses", "choses", "imagesDechoses", 546, 113);
+
+    $p1->new();
+    $p2->new();
+    $p3->new();
+    $p4->new();
+
+    //var_dump(Produits::read());
+    ProduitFournisseur::remplissage();
+
+    // var_dump(ProduitFournisseur::$quantite);
+    
+    echo $p1->getQuantiteByFournisseur($fournisseur->codeComptable);

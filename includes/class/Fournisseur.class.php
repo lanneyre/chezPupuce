@@ -1,7 +1,7 @@
 <?php
     class Fournisseur extends Personne{
 
-        private $codeComptable;
+        protected $codeComptable;
 
         static $tableau_fournisseur;
 
