@@ -52,6 +52,10 @@ class Produits implements Commander{
         $this->$name = $value;
     }
 
+    static function getProduitsById($id){
+        return Database::getProduitsById($id);
+    }
+
     function getQuantiteByFournisseur($codeFournisseur){
         $qte = 0;
         //ProduitFournisseur::$quantite;

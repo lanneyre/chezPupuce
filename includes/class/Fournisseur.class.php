@@ -37,6 +37,10 @@
             }
         }
 
+        static function getFournisseurById($codeComptable){
+            return Database::getFournisseurById($codeComptable);
+        }
+
         function getQuantiteByProduit($idProduit){
             $qte = 0;
             // var_dump($this);

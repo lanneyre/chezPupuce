@@ -56,8 +56,8 @@
 
     //var_dump(Produits::read());
     Database::remplissage();
-    $fournisseur = Database::getFournisseurById("4010005");
-    $p1 = Database::getProduitsById(1);
+    $fournisseur = Fournisseur::getFournisseurById("4010005");
+    $p1 = Produits::getProduitsById(1);
     
     echo $p1->getQuantiteByFournisseur($fournisseur->codeComptable)."\n";
 
